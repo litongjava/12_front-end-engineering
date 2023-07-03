@@ -1,0 +1,102 @@
+@import "./init.less";
+
+@w-1200: 1200px;
+
+.container {
+  width: @w-1200;
+  height: 200px;
+}
+
+.card {
+  width: @w-1200;
+}
+
+.box() {
+  width: 100px;
+  height: 100px;
+}
+
+.box1 {
+  .box();
+  background: red;
+}
+
+.box2 {
+  .box();
+  background: green;
+}
+
+.container {
+  width: 1000px;
+  height: 50px;
+
+  .nav {
+    width: 100px;
+    height: 50px;
+    overflow: hidden;
+    clear: both;
+
+    ul {
+      list-style: none;
+
+      li {
+        a {
+          text-decoration: none;
+          font-size: 20px;
+
+          &:hover {
+            color: green;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 根rem： 1rem = 50px  50*60
+
+.box3 {
+  width: 100px + 100px;
+  height: 100px - 10px;
+  background: #222 * 2;
+  font-size: 30px / 2;
+  width: 50rem / 50;
+  height: 60rem / 50;
+}
+
+@min768: ~'(min-width: 768px)';
+
+.element {
+  @media @min768 {
+    font-size: 1.2rem;
+  }
+}
+
+@width: 0.5;
+
+.class {
+  width: percentage(@width); // returns `50%`
+}
+
+#colors() {
+  pages: "#f1f1f1"
+}
+
+.container {
+  background: #colors[pages];
+}
+
+@var: red;
+
+#page {
+  @var: white;
+
+  #header {
+    color: @var; // white
+  }
+}
+
+// 注释
+/*
+ *   多行注释
+ */

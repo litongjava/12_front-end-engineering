@@ -1,0 +1,56 @@
+@import "./init.scss";
+
+$nav-color: #F90;
+
+nav {
+    $width: 100px;
+    width: $width;
+    color: $nav-color;
+}
+
+// 不会生成在css文件中
+/*
+    会在css文件中看到
+*/
+.container {
+    width: 100px;
+
+    .nav {
+        width: 100px;
+
+        ul {
+            overflow: hidden;
+
+            li {
+                list-style: none;
+
+                a {
+                    color: red;
+
+                    &:hover {
+                        color: green;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin rounded-corners {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.box{
+    @include rounded-corners;
+}
+
+.error{
+    color: red;
+}
+
+.demo{
+    width: 100px;
+    @extend .error;
+}
